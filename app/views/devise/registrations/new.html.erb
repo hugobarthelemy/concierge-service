@@ -4,17 +4,33 @@
   <%= f.error_notification %>
 
   <div class="form-inputs">
+    <%= f.input :first_name,                      required: true,   label: "Prénom" %>
+    <%= f.input :last_name,                       required: true,   label: "Nom" %>
+    <%= f.input :address_line1,                   required: true,   label: "Addresse ligne 1" %>
+    <%= f.input :address_line2,                   required: false,  label: "Addresse ligne 2" %>
+    <%= f.input :postal_code,                     required: true,   label: "Code postal" %>
+    <%= f.input :mobile_phone_number,             required: false,  label: "Téléphone portable" %>
+    <%= f.input :fixed_line_phone_number,         required: false,  label: "Téléphone fixe" %>
+    <%= f.input :date_of_birth,                   required: true,
+                as: :date, start_year: Date.today.year - 90,
+                           end_year: Date.today.year - 12,
+                           order: [:day, :month, :year],  required: true,   label: "Date de naissance" %>
     <%= f.input :email,
                 required: true,
                 autofocus: true ,
-                input_html: { autocomplete: "email" }%>
+                label: "Email" %>
     <%= f.input :password,
                 required: true,
                 hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length),
-                input_html: { autocomplete: "new-password" } %>
+                label: "Mot de passe" %>
     <%= f.input :password_confirmation,
                 required: true,
-                input_html: { autocomplete: "new-password" } %>
+                label: "Confirmez votre mot de passe" %>
+    <%= f.input :priority_contact,                   required: true,   collection: ["Téléphone portable", "Téléphone fixe", "Email"],  label: "Contact prioritaire" %>
+    <%= f.input :interior_regulations_accepted_at,   required: true,   as: :boolean, checked_value: true, unchecked_value: false, label: "En cochant cette case, j'accepte le règlement intérieur de l'association" %>
+    <%= f.input :statutes_accepted_at,               required: true,   as: :boolean, checked_value: true, unchecked_value: false, label: "En cochant cette case, j'accepte les status de l'association" %>
+    <%= f.input :personal_data_policy_accepted_at,   required: true,   as: :boolean, checked_value: true, unchecked_value: false, label: "En cochant cette case, j'accepte la politique de confidentialité de l'association" %>
+    <%= f.input :publication_picture_accepted_at,    required: true,   as: :boolean, checked_value: true, unchecked_value: false, label: "En cochant cette case, j'accepte que ma photo soit publiée sur le site de l'association" %>
   </div>
 
   <div class="form-actions">

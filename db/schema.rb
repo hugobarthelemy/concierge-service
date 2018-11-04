@@ -10,12 +10,28 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_11_02_220139) do
+ActiveRecord::Schema.define(version: 2018_11_03_120020) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "pgcrypto"
   enable_extension "plpgsql"
   enable_extension "uuid-ossp"
+
+  create_table "demandes", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.uuid "user_id", null: false
+    t.uuid "heading_id", null: false
+    t.text "title", null: false
+    t.text "description", null: false
+  end
+
+  create_table "headings", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.text "human_id"
+    t.text "title", null: false
+  end
 
   create_table "users", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -25,8 +41,27 @@ ActiveRecord::Schema.define(version: 2018_11_02_220139) do
     t.datetime "remember_created_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.text "first_name", null: false
+    t.text "last_name", null: false
+    t.text "address_line1", null: false
+    t.text "address_line2"
+    t.text "postal_code", null: false
+    t.text "mobile_phone_number"
+    t.text "fixed_line_phone_number"
+    t.date "date_of_birth"
+    t.integer "priority_contact"
+    t.datetime "interior_regulations_accepted_at", null: false
+    t.datetime "statutes_accepted_at", null: false
+    t.datetime "personal_data_policy_accepted_at", null: false
+    t.datetime "publication_picture_accepted_at"
+    t.datetime "admin_accepted_at"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+  end
+
+  create_table "users_headings", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
+    t.uuid "user_id", null: false
+    t.uuid "heading_id", null: false
   end
 
 end
