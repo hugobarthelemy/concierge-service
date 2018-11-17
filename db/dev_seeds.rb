@@ -1,3 +1,5 @@
+require 'database_cleaner'
+DatabaseCleaner.clean_with :truncation
 @logger = Logger.new(STDOUT)
 @logger.formatter = proc do |_severity, _datetime, _progname, msg|
   msg unless @avoid_log
@@ -14,5 +16,6 @@ def log(msg)
 end
 
 require_relative 'dev_seeds/headings'
+require_relative 'dev_seeds/users'
 
-log "All seeds created successfuly 👍"
+log "All dev seeds created successfuly 👍"

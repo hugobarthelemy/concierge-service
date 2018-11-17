@@ -42,6 +42,7 @@ class RegistrationsController < Devise::RegistrationsController
                   :last_name,
                   :address_line1,
                   :address_line2,
+                  :city,
                   :postal_code,
                   :mobile_phone_number,
                   :fixed_line_phone_number,

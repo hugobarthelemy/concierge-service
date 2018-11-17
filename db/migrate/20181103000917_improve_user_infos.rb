@@ -4,6 +4,7 @@ class ImproveUserInfos < ActiveRecord::Migration[5.2]
     add_column :users, :last_name,                        :text, null: false
     add_column :users, :address_line1,                    :text, null: false
     add_column :users, :address_line2,                    :text
+    add_column :users, :city,                             :text, null: false
     add_column :users, :postal_code,                      :text, null: false
     add_column :users, :mobile_phone_number,              :text
     add_column :users, :fixed_line_phone_number,          :text

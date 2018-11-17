@@ -97,6 +97,8 @@ GEM
     factory_bot_rails (4.8.2)
       factory_bot (~> 4.8.2)
       railties (>= 3.0.0)
+    faker (1.8.7)
+      i18n (>= 0.7)
     ffi (1.9.25)
     flay (2.12.0)
       erubis (~> 2.7.0)
@@ -315,10 +317,11 @@ DEPENDENCIES
   bootstrap-sass (~> 3.3)
   brakeman
   bundler-audit
-  database_cleaner (~> 1.5)
+  database_cleaner
   devise
   dotenv-rails
   factory_bot_rails
+  faker
   flog
   font-awesome-sass (~> 5.0.9)
   jbuilder (~> 2.0)

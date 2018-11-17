@@ -45,6 +45,7 @@ ActiveRecord::Schema.define(version: 2018_11_03_120020) do
     t.text "last_name", null: false
     t.text "address_line1", null: false
     t.text "address_line2"
+    t.text "city", null: false
     t.text "postal_code", null: false
     t.text "mobile_phone_number"
     t.text "fixed_line_phone_number"

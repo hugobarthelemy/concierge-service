@@ -22,9 +22,10 @@ group :development do
 end
 
 group :development, :test do
-  gem "database_cleaner",       "~> 1.5"
+  gem "database_cleaner"
   gem "dotenv-rails"
   gem "factory_bot_rails"
+  gem 'faker'
   gem "listen",                 "~> 3.0.5"
   gem "pry-byebug"
   gem "pry-rails"
