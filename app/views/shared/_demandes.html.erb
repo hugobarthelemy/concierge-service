@@ -1,0 +1,25 @@
+<% unless status.nil? %>
+  <div class="row">
+    <div class="col-xs-12">
+      <h2>Les demandes <%= status %></h2>
+    </div>
+  </div>
+<% end %>
+<ul class="list-group">
+  <% demandes.each do |demande| %>
+    <div class="card" style="width: 18rem;">
+      <div class="card-body">
+        <h5 class="card-title"><%= demande.title %></h5>
+        <h6 class="card-subtitle mb-2 text-muted"><%= demande.heading.title %></h6>
+        <p class="card-text"><%= demande.description %></p>
+        <a><%= link_to "Voir le détail", demandes_path(demande), class: "card-link" %></a>
+        <a><%= link_to "Demande faite par #{demande.applicant.first_name} #{demande.applicant.last_name}", demandes_path(demande), class: "card-link" %></a>
+      </div>
+    </div>
+  <% end %>
+</ul>
+<div class="row">
+
+
+
+</div>

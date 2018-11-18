@@ -6,4 +6,12 @@ class User < ApplicationRecord
 
   has_many :demandes
   has_and_belongs_to_many :headings
+
+  def admin?
+    true
+  end
+
+  def full_name
+    "#{first_name} #{last_name}" 
+  end
 end

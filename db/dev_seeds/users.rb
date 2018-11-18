@@ -4,7 +4,7 @@ section "Creating Users" do
     date_time = (
       Time.now - rand(0.seconds..2.years) + rand(0.seconds..2.years)
     ).to_date
-    User.create(
+    user = User.create(
       first_name: Faker::Name.first_name,
       last_name: Faker::Name.last_name,
       address_line1: Faker::Address.street_address,
@@ -23,6 +23,7 @@ section "Creating Users" do
       personal_data_policy_accepted_at: date_time,
       publication_picture_accepted_at: date_time
     )
+    user.headings = Heading.all.sample(rand(0..Heading.all.count))
   end
 
   def create_admin

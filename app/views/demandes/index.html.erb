@@ -1,0 +1,9 @@
+<div class="row">
+  <div class="col-xs-12">
+    <h1>Les demandes</h1>
+    <a><%= link_to "Créer une nouvelle demande", new_demande_path, class: "btn btn-primary", role: "button" %></a>
+  </div>
+</div>
+<%= render 'shared/demandes', demandes: @pending_demandes, status: "en attente" %>
+<%= render 'shared/demandes', demandes: @accepted_demandes, status: "acceptées" %>
+<%= render 'shared/demandes', demandes: @done_demandes, status: "réalisées" %>

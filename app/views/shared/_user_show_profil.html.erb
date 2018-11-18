@@ -1,0 +1,86 @@
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th scope="col"></th>
+      <th scope="col">Vos informations</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th scope="col">Prénom</th>
+      <td><%= @user.first_name %></td>
+    </tr>
+    <tr>
+      <th scope="col">Nom</th>
+      <td><%= @user.last_name %></td>
+    </tr>
+    <tr>
+      <th scope="col">Date d'anniversaire</th>
+      <td><%= @user.date_of_birth %></td>
+    </tr>
+    <tr>
+      <th scope="col">Email</th>
+      <td><%= @user.email %></td>
+    </tr>
+    <tr>
+      <th scope="col">Date de création</th>
+      <td><%= @user.created_at %></td>
+    </tr>
+    <tr>
+      <th scope="col">Dernière mise à jour de votre compte</th>
+      <td><%= @user.updated_at %></td>
+    </tr>
+    <tr>
+      <th scope="col">Adresse</th>
+      <td><%= @user.address_line1 %></td>
+    </tr>
+    <tr>
+      <th scope="col">Complément d'adresse</th>
+      <td><%= @user.address_line2 %></td>
+    </tr>
+    <tr>
+      <th scope="col">Ville</th>
+      <td><%= @user.city %></td>
+    </tr>
+    <tr>
+      <th scope="col">Code postal</th>
+      <td><%= @user.postal_code %></td>
+    </tr>
+    <tr>
+      <th scope="col">Téléphone portable</th>
+      <td><%= @user.mobile_phone_number %></td>
+    </tr>
+    <tr>
+      <th scope="col">Téléphone fixe</th>
+      <td><%= @user.fixed_line_phone_number %></td>
+    </tr>
+    <tr>
+      <th scope="col">Moyen de contact privilégié</th>
+      <td><%= @user.priority_contact %></td>
+    </tr>
+    <tr>
+      <th scope="col">Date d'acceptation du règlement intérieur de l'association</th>
+      <td><%= @user.interior_regulations_accepted_at %></td>
+    </tr>
+    <tr>
+      <th scope="col">Date d'acceptation des status de l'association</th>
+      <td><%= @user.statutes_accepted_at %></td>
+    </tr>
+    <tr>
+      <th scope="col">Date d'acceptation de gestion des données personnelles</th>
+      <td><%= @user.personal_data_policy_accepted_at %></td>
+    </tr>
+    <tr>
+      <th scope="col">Date d'acceptation de la publication de votre photo de profil</th>
+      <td><%= @user.publication_picture_accepted_at %></td>
+    </tr>
+    <tr>
+      <th scope="col">Date d'acceptation de votre profil</th>
+      <% if @user.admin_accepted_at.nil? %>
+        <td>Votre compte est en attente de validation</td>
+      <% else %>
+        <td><%= @user.admin_accepted_at %></td>
+      <% end %>
+    </tr>
+  </tbody>
+</table>

@@ -17,5 +17,6 @@ end
 
 require_relative 'dev_seeds/headings'
 require_relative 'dev_seeds/users'
+require_relative 'dev_seeds/demandes'
 
 log "All dev seeds created successfuly 👍"

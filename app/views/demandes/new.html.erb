@@ -1,0 +1,6 @@
+<%= simple_form_for @demande do |f| %>
+<%= f.input :title, label: "Titre de la demande" %>
+<%= f.input :applicant_id, collection: User.all, label_method: :full_name, label: "Qui est le demandeur ?" %>
+<%= f.input :heading_id, collection: Heading.all, label: "Choisissez la catégorie" %>
+<%= f.input :description, as: :text, label: "Description" %>
+<%= f.submit "Créer la demande", class: "btn btn-primary" %> <% end %>
